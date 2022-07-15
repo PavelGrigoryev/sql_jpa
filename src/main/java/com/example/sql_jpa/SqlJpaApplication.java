@@ -1,9 +1,9 @@
 package com.example.sql_jpa;
 
-import com.example.sql_jpa.entity.Detail;
-import com.example.sql_jpa.entity.Employee;
-import com.example.sql_jpa.repository.DetailRepository;
-import com.example.sql_jpa.repository.EmployeeRepository;
+import com.example.sql_jpa.entity.one_to_many_bi.Department;
+import com.example.sql_jpa.entity.one_to_many_bi.Employee2;
+import com.example.sql_jpa.repository.one_to_many_bi.DepartmentRepository;
+import com.example.sql_jpa.repository.one_to_many_bi.Employee2Repository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -35,7 +35,7 @@ public class SqlJpaApplication {
         };
     }*/
 
-    @Bean
+    /*@Bean
     CommandLineRunner commandLineRunner(EmployeeRepository employeeRepository, DetailRepository detailRepository) {
         return args -> {
             //Employee employee = new Employee("Pavel", "Grigoryev", "IT", 500);
@@ -67,7 +67,22 @@ public class SqlJpaApplication {
             //detail.setEmployee(employee);
 
             //detailRepository.save(detail);
-            detailRepository.deleteById(5);
+            //detailRepository.deleteById(5);
+        };
+    }*/
+
+    @Bean
+    CommandLineRunner commandLineRunner(Employee2Repository employee2Repository, DepartmentRepository departmentRepository) {
+        return args -> {
+           /* Department department = new Department("IT", 300, 1200);
+            Employee2 employee1 = new Employee2("Pavel", "Grigoryev", 800);
+            Employee2 employee2 = new Employee2("Elena", "Smirnova", 1000);
+
+            department.addEmployeeToDepartment(employee1);
+            department.addEmployeeToDepartment(employee2);
+
+            departmentRepository.save(department);*/
+            employee2Repository.deleteById(4);
         };
     }
 }

@@ -1,4 +1,4 @@
-package com.example.sql_jpa.entity;
+package com.example.sql_jpa.entity.one_to_one;
 
 import javax.persistence.*;
 
