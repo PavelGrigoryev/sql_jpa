@@ -23,8 +23,8 @@ public class Department {
     private int minSalary;
 
     @OneToMany(cascade = {CascadeType.PERSIST, CascadeType.DETACH, CascadeType.REFRESH, CascadeType.MERGE},
-            mappedBy = "department")
-    private List<Employee2> employees;
+            mappedBy = "department", fetch = FetchType.EAGER)
+    private List<Worker> employees;
 
     public Department() {
     }
@@ -35,7 +35,7 @@ public class Department {
         this.minSalary = minSalary;
     }
 
-    public void addEmployeeToDepartment(Employee2 employee) {
+    public void addEmployeeToDepartment(Worker employee) {
         if (employees == null) {
             employees = new ArrayList<>();
         }
@@ -75,11 +75,11 @@ public class Department {
         this.minSalary = minSalary;
     }
 
-    public List<Employee2> getEmployees() {
+    public List<Worker> getEmployees() {
         return employees;
     }
 
-    public void setEmployees(List<Employee2> employees) {
+    public void setEmployees(List<Worker> employees) {
         this.employees = employees;
     }
 

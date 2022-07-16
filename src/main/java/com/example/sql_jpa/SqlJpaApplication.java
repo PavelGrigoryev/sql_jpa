@@ -1,9 +1,13 @@
 package com.example.sql_jpa;
 
+import com.example.sql_jpa.entity.many_to_many.Child;
+import com.example.sql_jpa.entity.many_to_many.Section;
 import com.example.sql_jpa.entity.one_to_many_bi.Department;
-import com.example.sql_jpa.entity.one_to_many_bi.Employee2;
+import com.example.sql_jpa.entity.one_to_many_bi.Worker;
+import com.example.sql_jpa.repository.many_to_many.ChildRepository;
+import com.example.sql_jpa.repository.many_to_many.SectionRepository;
 import com.example.sql_jpa.repository.one_to_many_bi.DepartmentRepository;
-import com.example.sql_jpa.repository.one_to_many_bi.Employee2Repository;
+import com.example.sql_jpa.repository.one_to_many_bi.WorkerRepository;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -71,18 +75,49 @@ public class SqlJpaApplication {
         };
     }*/
 
-    @Bean
-    CommandLineRunner commandLineRunner(Employee2Repository employee2Repository, DepartmentRepository departmentRepository) {
+   /* @Bean
+    CommandLineRunner commandLineRunner(WorkerRepository workerRepository, DepartmentRepository departmentRepository) {
         return args -> {
-           /* Department department = new Department("IT", 300, 1200);
-            Employee2 employee1 = new Employee2("Pavel", "Grigoryev", 800);
-            Employee2 employee2 = new Employee2("Elena", "Smirnova", 1000);
+            Department department = new Department("Sales", 800, 1500);
+            Worker worker = new Worker("Pavel", "Grigoryev", 800);
+            Worker worker2 = new Worker("Elena", "Smirnova", 1500);
+            Worker worker3 = new Worker("Anton", "Sidorov", 1200);
 
-            department.addEmployeeToDepartment(employee1);
-            department.addEmployeeToDepartment(employee2);
+            department.addEmployeeToDepartment(worker);
+            department.addEmployeeToDepartment(worker2);
+            department.addEmployeeToDepartment(worker3);
 
-            departmentRepository.save(department);*/
-            employee2Repository.deleteById(4);
+            departmentRepository.save(department);
+            //workerRepository.deleteById(4);
+        };
+    }*/
+
+    @Bean
+    CommandLineRunner commandLineRunner(ChildRepository childRepository, SectionRepository sectionRepository) {
+        return args -> {
+            /*Section section1 = new Section("Dance");
+            Child child1 = new Child("Olya", 12);
+            Child child2 = new Child("Grisha", 8);
+            Child child3 = new Child("Sanya", 9);
+
+            section1.addChildToSection(child1);
+            section1.addChildToSection(child2);
+            section1.addChildToSection(child3);
+
+            sectionRepository.save(section1);*/
+
+            /*Section section1 = new Section("VolleyBall");
+            Section section2 = new Section("Chess");
+            Section section3 = new Section("Math");
+            Child child1 = new Child("Igor", 10);
+
+            child1.addSectionToChild(section1);
+            child1.addSectionToChild(section2);
+            child1.addSectionToChild(section3);
+
+            childRepository.save(child1);*/
+            //sectionRepository.deleteById(6);
+            childRepository.deleteById(5);
         };
     }
 }

@@ -4,8 +4,8 @@ package com.example.sql_jpa.entity.one_to_many_bi;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "employees")
-public class Employee2 {
+@Table(name = "workers")
+public class Worker {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -24,10 +24,10 @@ public class Employee2 {
     @JoinColumn(name = "department_id")
     private Department department;
 
-    public Employee2() {
+    public Worker() {
     }
 
-    public Employee2(String firstName, String surname, int salary) {
+    public Worker(String firstName, String surname, int salary) {
         this.firstName = firstName;
         this.surname = surname;
         this.salary = salary;
